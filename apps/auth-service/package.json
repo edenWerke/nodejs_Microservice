@@ -2,8 +2,11 @@
   "name": "auth-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+
+  "scripts": {
+    "dev":"tsx watch src/index.tsx",
+    "start": "tsx src/index.ts"
+  },
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
