@@ -1,4 +1,5 @@
-import { AppError, signToken } from "shared";
+import { AppError,  } from "shared";
+import { signToken } from "../utils/jwt";
 import { createUser, findByEmail, findById } from "../repositories/user.repo";
 import { LoginInput, RegisterInput } from "../schemas/auth.schemas";
 import bcrypt from "bcryptjs";
