@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import type { JwtPayload } from "./types";
+import type { JwtPayload } from "../types/auth.types";
 
 function extractjwtSecret(): string {
   const secret = process.env.JWT_SECRET;
