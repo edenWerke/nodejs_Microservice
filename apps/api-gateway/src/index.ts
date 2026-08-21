@@ -12,7 +12,7 @@ import {
   successResponse,
 } from "shared";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import { gatewayAuth } from "./middleware/gatewayAuth";
+// import { gatewayAuth } from "./middleware/gatewayAuth";
 
 config({ path: resolve(process.cwd(), ".env") });
 config({ path: resolve(process.cwd(), "../../.env") });
@@ -57,7 +57,6 @@ app.use("/health", (_req, res) => {
 
 app.use(
   "/auth",
-  gatewayAuth,
   createProxyMiddleware({
     target: AUTH_SERVICE_URL,
     changeOrigin: true,
@@ -83,7 +82,7 @@ const workflowProxy = createProxyMiddleware({
   pathRewrite: (path) => `/tasks${path}`,
 });
 
-app.use("/tasks", gatewayAuth, (req, res, next) => {
+app.use("/tasks", (req, res, next) => {
   if (req.path.includes("/attachments")) {
     return mediaProxy(req, res, next);
   }
