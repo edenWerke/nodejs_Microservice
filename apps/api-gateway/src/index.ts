@@ -35,6 +35,7 @@ const app = express();
 //secure default http headers
 app.use(helmet());
 app.use(cors());
+// This is rate limiting. Its job is to prevent one person/IP from sending too many requests to your API in a short time
 app.use(
   rateLimit({
     windowMs: 15 * MINUTE, // SECOND, MINUTE, HOUR, and DAY constants are available, or a use bare number for milliseconds
