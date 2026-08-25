@@ -31,8 +31,8 @@ export function verifyToken(token: string): JwtPayload {
     throw new Error("Invalid token payload");
   }
 
-//   return {
-//     userId: decodeToken.userId,
-//     role: decodeToken.role,
-//   };
-// }
+  return {
+    userId: decodeToken.userId,
+    role: decodeToken.role,
+  };
+}
